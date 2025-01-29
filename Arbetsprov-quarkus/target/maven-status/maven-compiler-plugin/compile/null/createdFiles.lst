@@ -1,0 +1,2 @@
+org\acme\Entity\Users.class
+org\acme\quarkus\controller\UserController.class
