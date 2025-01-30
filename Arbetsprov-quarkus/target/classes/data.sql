@@ -1,4 +1,4 @@
-INSERT INTO Users (id,name, address, email, telephone) VALUES
+INSERT INTO UserEntity (id,name, address, email, telephone) VALUES
                                                         (1,'John Andersson', 'Storgatan 1, 123 45 Stockholm', 'john.andersson@example.se', '070-xxxxxxx'),
                                                         (2,'Maria Svensson', 'Huvudvägen 2, 234 56 Göteborg', 'maria.svensson@example.se', '070-xxxxxxx'),
                                                         (3,'Erik Karlsson', 'Lilla vägen 3, 345 67 Malmö', 'erik.karlsson@example.se', '070-xxxxxxx'),
