@@ -1,3 +1,0 @@
-org\acme\Entity\UserEntity.class
-org\acme\DTO\User.class
-org\acme\quarkus\controller\UserController.class
