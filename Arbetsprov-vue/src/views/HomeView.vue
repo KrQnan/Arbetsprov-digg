@@ -1,8 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import DataTableComponent from '@/components/DataTableComponent.vue'
+</script>
 
 <template>
-  <main>
-    <TheWelcome />
-    Hello
+  <main class="w-full">
+    <DataTableComponent />
   </main>
 </template>
