@@ -47,7 +47,7 @@
           <i class="fi fi-rs-angle-small-left"></i>
         </button>
         <button
-          :style="page < totaluserPages ? 'visible' : 'visibility:hidden'"
+          :style="page < totaluserPages! ? 'visible' : 'visibility:hidden'"
           @click="page++"
           class="bg-amber-50 text-black px-4"
         >
