@@ -1,6 +1,5 @@
 package org.acme.Entity;
 
-
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.acme.DTO.User;
@@ -9,7 +8,8 @@ import org.acme.DTO.User;
 //Sätter våra konstruktörer både en tom och en med alla attribut
 
 @Entity
-public class UserEntity extends PanacheEntityBase {
+public class UserEntity extends PanacheEntityBase
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

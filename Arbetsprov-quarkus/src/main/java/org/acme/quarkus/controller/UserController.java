@@ -1,5 +1,6 @@
 package org.acme.quarkus.controller;
 
+import io.quarkus.logging.Log;
 import jakarta.persistence.PersistenceException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -8,16 +9,19 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.acme.DTO.User;
 import org.acme.Entity.UserEntity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @Path("/digg")
 @Produces(MediaType.APPLICATION_JSON)
 public class UserController {
-    private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    /*@GET
+    @Path("/hello")
+    public String hello() {
+        //Vi använder panache för att enkelt lista alla våra entities
+        return "Hello world";
 
+    }*/
     @GET
     @Path("/user")
     public Response listUsers() {
@@ -49,7 +53,7 @@ public class UserController {
         try{
             //Om användaren är ny så sparar vi den
             userEntity.persist();
-            log.info("Användare sparad: " + user.name);
+            Log.info("Användare sparad: " + user.name);
             return Response.status(200).entity(("Användare tillagd")).build();
         }
         catch (Exception e){
@@ -72,7 +76,7 @@ public class UserController {
                 );
         //Här använder vi en bra panache metod för att hitta en användare med id och ta bort den
         UserEntity.deleteById(id);
-        log.info("Användare borttagen");
+        Log.info("Användare borttagen");
         return Response.status(204).entity("Användare borttagen").build();
     }
 
@@ -88,7 +92,7 @@ public class UserController {
             //Vi sätter våran användare till en ny användare so vi skickar in
             UserEntity newUser = new UserEntity(user);
             newUser.id = id;
-            log.info("Användare uppdaterad: " + user.name);
+            Log.info("Användare uppdaterad: " + user.name);
             return Response.status(200).entity(newUser).build();
         } catch (PersistenceException e){
             throw new WebApplicationException(Response.status(406).entity(e.getMessage() + user).build());

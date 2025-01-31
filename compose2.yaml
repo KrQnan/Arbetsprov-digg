@@ -1,0 +1,14 @@
+services:
+  arbetsprov-vue:
+    build: 
+      context: ./Arbetsprov-vue
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  arbetsprov-quarkus:
+    build: 
+      context: ./Arbetsprov-quarkus
+      dockerfile: ./src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
