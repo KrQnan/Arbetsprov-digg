@@ -1,4 +1,4 @@
-package org.acme.quarkus.controller;
+package org.acme.controller;
 
 import io.quarkus.logging.Log;
 import jakarta.persistence.PersistenceException;
@@ -7,32 +7,27 @@ import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.acme.DTO.User;
-import org.acme.Entity.UserEntity;
+import org.acme.dto.User;
+import org.acme.entity.UserEntity;
+
+import java.util.List;
 
 
 @Path("/digg")
 @Produces(MediaType.APPLICATION_JSON)
 public class UserController {
 
-    /*@GET
-    @Path("/hello")
-    public String hello() {
-        //Vi använder panache för att enkelt lista alla våra entities
-        return "Hello world";
-
-    }*/
     @GET
     @Path("/user")
-    public Response listUsers() {
+    public List<UserEntity> listUsers() {
         //Vi använder panache för att enkelt lista alla våra entities
-        return Response.status(200).entity(UserEntity.listAll()).build();
+        return UserEntity.listAll();
 
     }
 
     @GET
     @Path("/user/{id}")
-    public Response getUserById(@PathParam("id") Long id) {
+    public Response getUserById(@PathParam("id") Integer id) {
         //Felhantering om id ej finns
         return Response.status(200).entity(UserEntity.findByIdOptional(id)
                 .orElseThrow(() ->
@@ -56,7 +51,7 @@ public class UserController {
             Log.info("Användare sparad: " + user.name);
             return Response.status(200).entity(("Användare tillagd")).build();
         }
-        catch (Exception e){
+        catch (PersistenceException e){
             throw new WebApplicationException(Response.status(406).entity(e.getMessage() + user).build());
         }
     }
@@ -64,7 +59,7 @@ public class UserController {
     @DELETE
     @Path("/delete/{id}")
     @Transactional
-    public Response deleteUser(@PathParam("id") Long id) {
+    public Response deleteUser(@PathParam("id") Integer id) {
         //Fel hantering om id ej finns
         UserEntity.findByIdOptional(id)
                 .orElseThrow(() ->
@@ -84,7 +79,7 @@ public class UserController {
     @Path("/update/{id}")
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateUser(@PathParam("id") Long id,@Valid User user) {
+    public Response updateUser(@PathParam("id") Integer id, @Valid User user) {
         try{
             //Vi kör en query för att uppdatera användaren där vi skickar in parametrarna
             UserEntity.update("name = ?1, address = ?2, email = ?3, telephone = ?4 where id = ?5",

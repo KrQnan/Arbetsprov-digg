@@ -1,3 +1,3 @@
-org\acme\Entity\UserEntity.class
-org\acme\DTO\User.class
-org\acme\quarkus\controller\UserController.class
+org\acme\dto\User.class
+org\acme\entity\UserEntity.class
+org\acme\controller\UserController.class

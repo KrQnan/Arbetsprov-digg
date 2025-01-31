@@ -1,8 +1,8 @@
-package org.acme.Entity;
+package org.acme.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
-import org.acme.DTO.User;
+import org.acme.dto.User;
 
 
 //Sätter våra konstruktörer både en tom och en med alla attribut
@@ -13,7 +13,7 @@ public class UserEntity extends PanacheEntityBase
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    public Integer id;
 
     @Column
     public String name;
