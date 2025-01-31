@@ -102,7 +102,7 @@ const updateUserModal = ref<boolean>(false)
 const deleteUserModal = ref<boolean>(false)
 const createUserModal = ref<boolean>(false)
 
-const totaluserPages = computed(() => store.users?.length / userPerPage)
+const totaluserPages = computed(() => store.users?.length && store.users.length / userPerPage)
 
 const paginatedUsers = computed(() =>
   store.users?.slice((page.value - 1) * userPerPage, page.value * userPerPage),
