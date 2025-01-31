@@ -119,12 +119,24 @@ Arbetsprov-digg är en fullstack applikation som består av en frontend och en b
 <ul>
 <li><strong>GET /digg/user</strong> - Hämtar alla användare.</li>
 <li><strong>POST /digg/creater</strong> - Skapar en ny användare.</li>
-<li><strong>PUT /digg/update</strong> - Uppdaterar en befintlig användare baserat på dess id.</li>
-<li><strong>DELETE /digg/delete</strong> - Raderar en användare med ett användar id.</li>
+<li><strong>PUT /digg/update/{id}</strong> - Uppdaterar en befintlig användare baserat på dess id.</li>
+<li><strong>DELETE /digg/delete/{id}</strong> - Raderar en användare med ett användar id.</li>
 </ul>
 <h2 id="troubleshoot">Vanliga problem och felsökning</h2>
+<p>Ett vanligt problem som kan uppstå är att porten redan är upptagen vilket går att åtgärda genom att ändra porten i compose.yaml filen. </p>
 
-<h2 id="framtida-förbättringar">Framtida förbättringar</h2>
-
+<p>
+  Ett till problem som kan uppstå är att om backend tjänsten ej vill bygga så kan det vara att den saknar sig image     vilket vi kan åtgärda genom att köra kommandot <pre class=" language-bash">
+  <code class="prism  language-bash">./mvnw <span class="token function">clean package quarkus:image-build -DskipTests -Dquarkus.container-image.tag=latest</span>
+  </code>
+</pre>
+</p>
+<h2 id="Förbättringar">Förbättringar</h2>
+<p>Nedanför så hittar vi förbättringar som kommer komma till eller som skulle ha gjorts</p>
+<ul>
+  <li>BankId lösning med saml2.0</li>
+  <li>Utöka testning i frontend appen</li>
+  <li>Utökad funktionalitet i backend appen</li>
 <h2 id="licens">Licens</h2>
+Det finns ingen licens för detta projekt utan kan användas i utbildningssyfte eller som referensmaterial.
 
