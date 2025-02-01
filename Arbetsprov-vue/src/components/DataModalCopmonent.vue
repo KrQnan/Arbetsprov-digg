@@ -1,3 +1,6 @@
+<!--
+  En modal som har smart skapats för att kunna ta emot små förändringar så den kan var anpassningsbar till att vara en createUserModal och en updateUserModal
+-->
 <template>
   <Transition name="modal">
     <div v-if="props.show" class="modal-mask text-black">

@@ -48,9 +48,12 @@ public class UserControllerTest {
 
     @Test
     void testGetAllUsers(){
+        // Vi skapar en instans av userController så vi kan använda den i testet
         UserController userController = new UserController();
         List<UserEntity> users = userController.listUsers();
+        //Kollar om vi får in alla 30 användare från testdatabasen H2
         assertTrue(users.size() >= 30);
+        //Kollar även om vi får in en användare som är förväntad från H2 databasen
         boolean minbool = users.stream().anyMatch(user -> user.name.contains("Maria"));
         assertTrue(minbool);
     }

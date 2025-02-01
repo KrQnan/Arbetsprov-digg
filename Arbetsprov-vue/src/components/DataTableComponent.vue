@@ -1,3 +1,8 @@
+<!--
+  Detta är en enkel men stilig tabell komponent där vi kan göra alla operationer mot databasen så som skapa, ta bort, uppdatera och visa användare.
+  Komponenten låter även oss att bläddra mellan användare där vi har 10 användare per sida och ett par pilar för navigering mellan dom.
+
+-->
 <template>
   <div class="container flex flex-col gap-2">
     <table class="border-2 w-full">

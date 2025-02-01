@@ -7,6 +7,8 @@
   padding: 2rem;
   font-weight: normal;
 }
+
+/* Vi skapar två css klasser som vi kan använda för båda modalerna. Genom att lägga css klasserna här så kan fler komponenter använda samma klass. */
 .modal-mask {
   position: fixed;
   z-index: 9998;
