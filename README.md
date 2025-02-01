@@ -124,11 +124,11 @@ Arbetsprov-digg är en fullstack applikation som består av en frontend och en b
 </ul>
 <h2 id="troubleshoot">Vanliga problem och felsökning</h2>
 <p>Ett vanligt problem som kan uppstå är att porten redan är upptagen vilket går att åtgärda genom att ändra porten i compose.yaml filen. </p>
-
+<p>Ett ytterligare problem som kan uppstå är att redhat imagen kan vara nere för underhåll vilket går att lösa genom att vänta tills underhållet är klart</p>
 <p>
-  Ett till problem som kan uppstå är att om backend tjänsten ej vill bygga så kan det vara att den saknar sig image     vilket vi kan åtgärda genom att köra kommandot <pre class=" language-bash">
-  <code class="prism  language-bash">./mvnw <span class="token function">clean package quarkus:image-build -DskipTests -Dquarkus.container-image.tag=latest</span>
-  </code>
+  Ett till problem som kan uppstå är att om backend tjänsten ej vill bygga så kan det vara att den saknar sin image vilket vi kan åtgärda genom att köra följande kommandon i valfri terminal <pre class=" language-bash">
+    <code class="prism  language-bash">cd <span class="token function">Arbetsprov-quarkus</span></code>
+  <code class="prism  language-bash">./mvnw <span class="token function">clean package quarkus:image-build -DskipTests -Dquarkus.container-image.tag=latest</span></code>
 </pre>
 </p>
 <h2 id="Förbättringar">Förbättringar</h2>
